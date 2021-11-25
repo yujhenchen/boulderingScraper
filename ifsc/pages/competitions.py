@@ -19,12 +19,8 @@ class Competitions:
 		
 		wait.until(presence_of_element_located((By.CSS_SELECTOR, '.competition')))
 		events = driver.find_elements(By.CSS_SELECTOR, '.competition .title a')
-		print(len(events))
 
 		eventTitles = []
 		for event in events:
 			eventTitles.append(event.get_attribute('innerHTML'))
 		return eventTitles	
-
-c = Competitions()
-c.fetchCompetitions()
