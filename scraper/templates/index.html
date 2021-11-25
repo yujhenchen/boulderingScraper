@@ -6,6 +6,11 @@
 </head>
 
 <body>
-    {{ hello_world }} 
+    <ul>
+    {% for i in competitions %} 
+        <li>{{i}}</li>
+    {% endfor %}
+    </ul>
+
 </body>
 </html>
