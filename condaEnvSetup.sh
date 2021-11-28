@@ -4,6 +4,8 @@
 conda update conda
 conda --version
 
+# Remove the envronment
+# conda remove - name myenv - all
 # Create new python environment with specific python version
 conda create --name myenv -y python=3.10.0
 
