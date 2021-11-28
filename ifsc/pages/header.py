@@ -9,4 +9,6 @@ class Header(PageBase):
         super().__init__(driver)
 
     def click_home(self):
-        return
+        home_link = self.waits.get_presence_of_element_located(self.home_by)
+        self.actions.click(home_link)
+        return self

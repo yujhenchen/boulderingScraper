@@ -1,4 +1,4 @@
-from chromebrowser import ChromeBrowser
+from ifsc.factory.chromebrowser import ChromeBrowser
 
 
 class BrowserFactory(object):
@@ -6,9 +6,11 @@ class BrowserFactory(object):
         super().__init__()
         self.chrome = ChromeBrowser()
 
-    def get_browser(self):
+    def get_browser(self, url):
         if self.chrome is not None:
-            return self.chrome.get_browser()
+            driver = self.chrome.get_browser()
+            driver.get(url)
+            return driver
         else:
             print("BrowserFactory: get_browser: self.chrome is None")
             return None
