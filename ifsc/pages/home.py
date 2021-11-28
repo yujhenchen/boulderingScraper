@@ -1,3 +1,5 @@
-class Home(object):
-    def __init__(self):
-        super().__init__()
+from pagebase import PageBase
+
+class Home(PageBase):
+    def __init__(self, driver):
+        super().__init__(driver)
