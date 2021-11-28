@@ -1,4 +1,4 @@
-from pagebase import PageBase
+from ifsc.pages.pagebase import PageBase
 from selenium.webdriver.common.by import By
 
 

@@ -1,5 +1,5 @@
-from factory.waits import Waits
-from factory.actions import Actions
+from ifsc.factory.waits import Waits
+from ifsc.factory.actions import Actions
 
 class PageBase(object):
     def __init__(self, driver):
