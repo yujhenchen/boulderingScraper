@@ -4,6 +4,7 @@ from selenium.webdriver.common.by import By
 
 class Header(PageBase):
     home_by = (By.CSS_SELECTOR, "a[href*='/index.php']")
+    accept_all_cookies_by = (By.ID, "onetrust-accept-btn-handler")
 
     def __init__(self, driver):
         super().__init__(driver)
@@ -11,4 +12,11 @@ class Header(PageBase):
     def click_home(self):
         home_link = self.waits.get_presence_of_element_located(self.home_by)
         self.actions.click(home_link)
+        return self
+
+    def click_accept_all_cookies(self):
+        accept_button = self.waits.get_presence_of_element_located(
+            self.accept_all_cookies_by
+        )
+        self.actions.click(accept_button)
         return self

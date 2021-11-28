@@ -3,7 +3,7 @@ from selenium.webdriver.support import expected_conditions as EC
 
 
 class Waits(object):
-    wait_time = 5
+    wait_time = 10
 
     def __init__(self, driver):
         super().__init__()
