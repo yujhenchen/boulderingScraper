@@ -11,12 +11,12 @@ class Header(PageBase):
 
     def click_home(self):
         home_link = self.waits.get_presence_of_element_located(self.home_by)
-        self.actions.click(home_link)
+        home_link.click()
         return self
 
     def click_accept_all_cookies(self):
         accept_button = self.waits.get_presence_of_element_located(
             self.accept_all_cookies_by
         )
-        self.actions.click(accept_button)
+        accept_button.click()
         return self

@@ -1,5 +1,4 @@
 from ifsc.factory.browserfactory import BrowserFactory
-
 from ifsc.pages.header import Header
 
 
@@ -10,6 +9,13 @@ def get_chrome_browser():
 
 
 def test_click_home():
-    header = Header(get_chrome_browser())
-    header = header.click_accept_all_cookies()
-    header = header.click_home()
+    browser = None
+    try:
+        browser = get_chrome_browser()
+        header = Header(browser)
+        header = header.click_accept_all_cookies()
+        header = header.click_home()
+    except Exception as ex:
+        assert False, "test_click_home: Exception: " + str(ex)
+    finally:
+        browser.close()
