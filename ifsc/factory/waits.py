@@ -12,3 +12,9 @@ class Waits(object):
 
     def get_presence_of_element_located(self, by):
         return self.wait.until(EC.presence_of_element_located(by))
+
+    def get_element_to_be_clickable(self, by):
+        return self.wait.until(EC.element_to_be_clickable(by))
+
+    def get_invisibility_of_element_located(self, by):
+        return self.wait.until(EC.invisibility_of_element_located(by))
