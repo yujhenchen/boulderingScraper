@@ -11,12 +11,12 @@ class Header(PageBase):
         super().__init__(driver)
 
     def click_home(self):
-        home_link = self.waits.get_element_to_be_clickable(self.home_by)
+        home_link = self.waits.waitForElementToBeClickable(self.home_by)
         home_link.click()
         return self
 
     def click_accept_all_cookies(self):
-        accept_button = self.waits.get_element_to_be_clickable(
+        accept_button = self.waits.waitForElementToBeClickable(
             self.accept_all_cookies_by
         )
         accept_button.click()
