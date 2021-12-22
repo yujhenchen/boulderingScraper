@@ -3,17 +3,16 @@ from selenium.webdriver.support import expected_conditions as EC
 
 
 class Waits(object):
-    wait_time = 10
 
-    def __init__(self, driver):
+    def __init__(self, driver, wait_time = 10):
         super().__init__()
         self.driver = driver
-        self.wait = WebDriverWait(driver, self.wait_time)
+        self.wait = WebDriverWait(driver, wait_time)
 
-    def get_presence_of_element_located(self, by):
+    def waitForElement(self, by):
         return self.wait.until(EC.presence_of_element_located(by))
 
-    def get_element_to_be_clickable(self, by):
+    def waitForElementToBeClickable(self, by):
         return self.wait.until(EC.element_to_be_clickable(by))
 
     def get_invisibility_of_element_located(self, by):
