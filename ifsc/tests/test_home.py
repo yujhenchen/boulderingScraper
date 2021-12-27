@@ -1,23 +1,26 @@
-from ifsc.factory.browserfactory import BrowserFactory
-from ifsc.pages.header import Header
+from ifsc.pages.home import Home
 
 
-def get_chrome_browser():
-    browserFactory = BrowserFactory()
-    chrome_driver = browserFactory.get_browser("https://www.ifsc-climbing.org/")
-    return chrome_driver
-
-
-def test_click_accept_all_cookies():
-    browser = None
+def testAcceptAllCookies():
+    home = None
     try:
-        browser = get_chrome_browser()
-        browser.maximize_window()
-
-        header = Header(browser)
-        header = header.click_accept_all_cookies()
-        header = header.wait_cookies_dialog_close()
+        home = Home()
+        home = home.clickAcceptAllCookies()
+        home = home.waitCookiesDialogClose()
     except Exception as ex:
-        assert False, "test_click_accept_all_cookies: Exception: " + str(ex)
+        assert False, "testAcceptAllCookies: Exception: " + str(ex)
     finally:
-        browser.close()
+        home.driver.close()
+
+
+def testGoToNews():
+    home = None
+    try:
+        home = Home()
+        home = home.clickAcceptAllCookies()
+        home = home.waitCookiesDialogClose()
+        news = home.clickNews()
+    except Exception as ex:
+        assert False, "testGoToNews: Exception: " + str(ex)
+    finally:
+        home.driver.close()
