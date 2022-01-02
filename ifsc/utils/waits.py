@@ -15,5 +15,5 @@ class Waits(object):
     def waitForElementToBeClickable(self, by):
         return self.wait.until(EC.element_to_be_clickable(by))
 
-    def get_invisibility_of_element_located(self, by):
+    def getInvisibilityOfElementLocated(self, by):
         return self.wait.until(EC.invisibility_of_element_located(by))
