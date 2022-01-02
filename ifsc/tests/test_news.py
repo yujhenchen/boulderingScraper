@@ -1,6 +1,7 @@
 from ifsc.pages.home import Home
 import traceback
 
+
 def testFetchOnePageNews():
     home = None
     try:
@@ -13,11 +14,9 @@ def testFetchOnePageNews():
         news.waitCookiesDialogClose()
         newsMap = news.fetchOnePageNews()
 
-        print("len!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
-        print(len(newsMap))
+        # print(len(newsMap))
         for key in newsMap:
-            print(key)
-            print(newsMap[key])
+            print(key + "  " + newsMap[key])
     except Exception as ex:
         traceback.print_exc()
         assert False, "testFetchOnePageNews"

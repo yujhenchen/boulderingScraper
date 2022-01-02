@@ -17,7 +17,7 @@ class News(PageBase):
 
     def findNews(self, locator):
         try:
-            self.waits.waitForElementToBeClickable(locator)
+            return self.waits.waitForElementToBeClickable(locator)
         except:
             return None
 
@@ -30,15 +30,17 @@ class News(PageBase):
         while True:
             # find news
             locator = (
-                By,
-                "div[1]/div[4]/div/div/div/div[2]/div[" + str(newsIndex) + "]/article/h2/a",
+                By.XPATH,
+                "//div[1]/div[4]/div/div/div/div[2]/div["
+                + str(newsIndex)
+                + "]/article/h2/a",
             )
             news = self.findNews(locator)
             if news == None:
                 break
             # find news link
             newsLink = news.get_attribute("href")
-            newsMap[news] = newsLink
+            newsMap[news.text] = newsLink
             newsIndex += 1
         return newsMap
 
